@@ -7,7 +7,6 @@ import bg from "../../../public/images/cinema.jpg";
 
 export default function Header() {
   const [backgroundImage, setBackgroundImage] = useState(bg);
-
   const handleImageHover = (imageSrc) => {
     setBackgroundImage(imageSrc);
   };
