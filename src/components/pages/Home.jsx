@@ -1,6 +1,6 @@
-import MoviesListSlider from "./MoviesListSlider";
+import MoviesListSlider from "../main/MoviesListSlider";
 
-export default function MoviesList() {
+export default function Home() {
   const movie = [
     "/pic1.webp",
     "/pic2.webp",

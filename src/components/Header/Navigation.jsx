@@ -1,48 +1,55 @@
 import { useState } from "react";
 import { FaBars } from "react-icons/fa6";
+import { Link, NavLink } from "react-router-dom";
 
 export default function Navigation() {
   const [isOpenMenu, setIsOpenMenu] = useState(false);
+  const menuItem = [
+    { id: 1, patch: "/movies", text: "movies" },
+    { id: 2, patch: "/tv", text: "tv" },
+    { id: 3, patch: "/people", text: "people" },
+    { id: 4, patch: "/Tv-Shows", text: "Tv Shows" },
+    { id: 5, patch: "/more", text: "more" },
+  ];
+  function activeClass({ isActive }) {
+    return isActive ? "text-rose-600" : "hover:text-white";
+  }
   return (
     <>
       <nav className="flex items-center justify-between py-4 md:container md:bg-transparent overflow-hidden bg-slate-900 px-4 ">
         <div className="flex items-center gap-12">
           <div>
-            {/* <img src={logoHeader} alt="" /> */}
-            <h1 className="font-bold text-3xl text-rose-500">Hyper Movies</h1>
+            <Link to="/">
+              <h1 className="font-bold text-3xl text-rose-500">Hyper Movies</h1>
+            </Link>
           </div>
           <ul className="hidden md:flex items-center gap-6">
-            <li>
-              <a href="#">Movies</a>
-            </li>
-            <li>
-              <a href="#">Tv Shows</a>
-            </li>
-            <li>
-              <a href="#">People</a>
-            </li>
-            <li>
-              <a href="#">More</a>
-            </li>
+            {menuItem.map((mItem) => {
+              return (
+                <li key={mItem.id}>
+                  <NavLink to={mItem.patch} className={activeClass}>{mItem.text.toUpperCase()}</NavLink>
+                </li>
+              );
+            })}
           </ul>
         </div>
         <div>
           <ul className="hidden md:flex items-center gap-4">
             <li className="transition-all hover:scale-110">
-              <a
-                href=""
+              <NavLink
+                to=""
                 className="bg-rose-600 text-white px-8 py-2 rounded-full  uppercase"
               >
                 Login
-              </a>
+              </NavLink>
             </li>
             <li className="transition-all hover:scale-110">
-              <a
-                href=""
+              <NavLink
+                to=""
                 className="bg-rose-500 text-white px-8 py-2 rounded-full  uppercase"
               >
                 Join
-              </a>
+              </NavLink>
             </li>
           </ul>
         </div>
@@ -60,18 +67,15 @@ export default function Navigation() {
         }`}
       >
         <ul className="flex flex-col items-center gap-6">
-          <li>
-            <a href="#">Movies</a>
-          </li>
-          <li>
-            <a href="#">Tv Shows</a>
-          </li>
-          <li>
-            <a href="#">People</a>
-          </li>
-          <li>
-            <a href="#">More</a>
-          </li>
+          {menuItem.map((mItem) => {
+            return (
+              <li key={mItem.id}>
+                <NavLink to={mItem.patch} className={activeClass}>
+                  {mItem.text.toUpperCase()}
+                </NavLink>
+              </li>
+            );
+          })}
         </ul>
       </div>
     </>
