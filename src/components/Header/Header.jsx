@@ -13,7 +13,7 @@ export default function Header() {
 
   return (
     <header
-      className=" transition-all bg-cover bg-center pb-8 md:py-8"
+      className=" transition-all bg-cover  bg-center pb-8 md:py-8"
       style={{
         backgroundImage: `linear-gradient(#ab534f30, #0f0f0f),url('${backgroundImage}')`,
       }}
